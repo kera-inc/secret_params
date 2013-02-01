@@ -4,7 +4,7 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'secret_params', git: "gitpathgoeshere"
+    gem 'secret_params', git: "git@github.com:kera-inc/secret_params.git"
 
 Log into the console and generate a secret key
 
