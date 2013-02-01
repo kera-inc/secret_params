@@ -2,14 +2,20 @@
 
 ## Installation
 
-Add an initializer (```secret_params.rb```) to set a secret key
-```ruby
-SecretParams::SecretToken = "secret"
-```
-
 Add this line to your application's Gemfile:
 
-    gem 'secret_params'
+    gem 'secret_params', git: "gitpathgoeshere"
+
+Log into the console and generate a secret key
+
+```
+> EzCrypto::Key.generate
+=> "SecretKey"
+``` 
+
+Set the ```SECRET_PARAMS_TOKEN``` environment variable to the generated key.
+
+Install the gem on any machine you need to communicate securely with and use the same generated key.
 
 ## Usage
 
@@ -29,7 +35,7 @@ On the receiving side in the controller:
 before_filter :decrypt_params
 
 def decrypt_params
-	params.merge!(SecretParams.decrypt_params(params))
+  params.merge!(SecretParams.decrypt_params(params))
 end
 ```
 
